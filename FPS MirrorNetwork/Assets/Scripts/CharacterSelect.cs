@@ -38,7 +38,7 @@ namespace DapperDino.Mirror.Tutorials.CharacterSelection
             characterNameText.text = characters[currentCharacterIndex].CharacterName;
 
             characterSelectDisplay.SetActive(true);
-            StartCoroutine(CoolDown(20));
+            StartCoroutine(CoolDown(5));
         }
 
         private void Update()
@@ -61,18 +61,27 @@ namespace DapperDino.Mirror.Tutorials.CharacterSelection
         [Command(requiresAuthority = false)]
         public void CmdSelect(int characterIndex, NetworkConnectionToClient sender = null)
         {
-            // Debug.Log("Hello");
-            // Debug.Log("connection id:" + sender.connectionId);
+            Debug.Log("connection id:" + sender.connectionId);
+            // if(sender == null){
+            //     Debug.Log("Hello sender is null");
+            // }else {
+            //     Debug.Log("connection id:" + sender.connectionId);
+            // }
+            
             GameObject characterInstance = Instantiate(characters[characterIndex].GameplayCharacterPrefab);
             characterInstance.name = $"{characters[characterIndex].GameplayCharacterPrefab.name} [connId={sender.connectionId}]";
             NetworkServer.Spawn(characterInstance, sender);
-            NetworkServer.ReplacePlayerForConnection(sender,characterInstance);
+            //NetworkServer.ReplacePlayerForConnection(sender,characterInstance);
         }
 
         [Command(requiresAuthority = false)]
         public void CmdDisplayIdConnection(NetworkConnectionToClient sender = null){
-            Debug.Log("connection id :" + sender.connectionId);
-            Debug.Log("Hello");
+            // if(sender == null){
+            //     Debug.Log("Hello sender is null");
+            // }else {
+            //     Debug.Log("connection id:" + sender.connectionId);
+            // }
+            Debug.Log("connection id:" + sender.connectionId);
         }
 
         public void Right()

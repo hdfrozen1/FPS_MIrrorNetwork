@@ -3,6 +3,7 @@ ScriptsOnlyBuild:
     Assembly-CSharp:
     - DapperDino.Mirror.Tutorials.Lobby.NetworkGamePlayerLobby
     - DapperDino.Mirror.Tutorials.Lobby.NetworkRoomPlayerLobby
+    - HealthController
     - PlayerMovement
     Assembly-CSharp.dll:
     - DapperDino.Mirror.Tutorials.CharacterSelection.Character
@@ -13,6 +14,7 @@ ScriptsOnlyBuild:
     - DapperDino.Mirror.Tutorials.Lobby.NetworkManagerLobby
     - DapperDino.Mirror.Tutorials.Lobby.NetworkRoomPlayerLobby
     - DapperDino.Mirror.Tutorials.Lobby.PlayerNameInput
+    - HealthController
     - PlayerMovement
     Mirror:
     - Mirror.NetworkIdentity
@@ -20,8 +22,6 @@ ScriptsOnlyBuild:
     - Mirror.NetworkTransformReliable
     Mirror.Components.dll:
     - Mirror.NetworkTransformReliable
-    Mirror.Editor.dll:
-    - Mirror.NetworkBehaviourInspector
     Mirror.Transports.dll:
     - Mirror.TelepathyTransport
     Mirror.dll:
@@ -41,6 +41,15 @@ ScriptsOnlyBuild:
     - TMPro.TMP_SpriteAsset
     - TMPro.TMP_StyleSheet
     - TMPro.TextMeshProUGUI
+    UnityEditor.Graphs.dll:
+    - UnityEditor.Graphs.AnimationBlendTree.Graph
+    - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
+    - UnityEditor.Graphs.AnimationStateMachine.Graph
+    - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateEditor
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
+    - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
@@ -224,6 +233,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 22758}
     - Class: 114
       Script: {instanceID: 22968}
+    - Class: 114
+      Script: {instanceID: 25560}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -307,6 +318,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 21958}
     - Class: 114
       Script: {instanceID: 22968}
+    - Class: 114
+      Script: {instanceID: 25560}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1698,7 +1711,7 @@ ScriptsOnlyBuild:
     className: BehaviourConfig
   - hash:
       serializedVersion: 2
-      Hash: 082d6a77ea28810e35feed1613c6fe24
+      Hash: 8f0be44017a32e9782da6e72389d6ede
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: PlayerMovement
@@ -2326,6 +2339,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: UnityOnSliderValueChangedMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: a17347ea5958ce60ce0938ea358947bf
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: HealthController
   platform: 19
   scenePathNames:
   - Assets/Scenes/Lobby_Scene.unity

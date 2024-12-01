@@ -188,7 +188,8 @@ namespace DapperDino.Mirror.Tutorials.Lobby
         public override void OnServerReady(NetworkConnectionToClient conn)
         {
             base.OnServerReady(conn);
-            Debug.Log(conn.connectionId);
+            Debug.Log("ON server ready");
+            Debug.Log("connect id :" + conn.connectionId);
 
             //OnServerReadied?.Invoke(conn);
         }

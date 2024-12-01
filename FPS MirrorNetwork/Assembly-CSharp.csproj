@@ -68,6 +68,7 @@
     <Compile Include="Assets\Scripts\NetworkManagerLobby.cs" />
     <Compile Include="Assets\Scripts\NetworkRoomPlayerLobby.cs" />
     <Compile Include="Assets\Scripts\Character.cs" />
+    <Compile Include="Assets\Scripts\Health\HealthController.cs" />
     <Compile Include="Assets\Scripts\MainMenu.cs" />
     <Compile Include="Assets\Scripts\PlayerNameInput.cs" />
     <Compile Include="Assets\Scripts\NetworkGamePlayerLobby.cs" />

@@ -972,6 +972,7 @@ GameObject:
   - component: {fileID: 1820445245652703539}
   - component: {fileID: 9186921777234123065}
   - component: {fileID: -4050369474694437300}
+  - component: {fileID: 9003094279829415301}
   m_Layer: 0
   m_Name: DefaultFemalePBR
   m_TagString: Untagged
@@ -1012,7 +1013,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: ae5e3958134aac043a68fb451b99908b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -1051,7 +1052,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncDirection: 1
   syncMode: 0
-  syncInterval: 0
+  syncInterval: 0.03
   target: {fileID: 7830203463683870049}
   syncPosition: 1
   syncRotation: 1
@@ -1087,7 +1088,7 @@ MonoBehaviour:
   syncInterval: 0
   characterController: {fileID: -4050369474694437300}
   moveSpeed: 10
-  Health: 100
+  Dame: 10
   sensitivityX: 50
   sensitivityY: 50
   maxCameraX: 80
@@ -1118,6 +1119,22 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &9003094279829415301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7830203463684231489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 658ac90657ead18498d4e67b89e8e3a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  _maxHealth: 150
 --- !u!1 &7830203463684231491
 GameObject:
   m_ObjectHideFlags: 0

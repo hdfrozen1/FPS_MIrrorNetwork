@@ -7,9 +7,9 @@ public class PlayerMovement : NetworkBehaviour
     [SerializeField] CharacterController characterController;
     public float moveSpeed = 10f;
 
-    [Header("Health")]
-    [SyncVar(hook = nameof(TakeDame))]
-    public float Health = 100f;
+    
+    [Header("dame")]
+    public float Dame;
 
     [Header("Look Settings")]
     [SerializeField] float sensitivityX = 100f;
@@ -18,28 +18,29 @@ public class PlayerMovement : NetworkBehaviour
     [SerializeField] float minCameraX = -80f;
     float xRotation;
 
-    public override void OnStartLocalPlayer()
+
+    public override void OnStartAuthority()
     {
-        if (!isLocalPlayer)
+        if (!isOwned)
         {
             enabled = false; // Disable this script for non-local players
             return;
         }
-        SetHealth();
+
         Camera.main.transform.SetParent(transform);
         Camera.main.transform.localPosition = new Vector3(0, 1.197f, 0.312f);
         Camera.main.transform.rotation = Quaternion.identity;
         Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
+        Cursor.visible = false;
     }
 
     private void Update()
     {
-        if (!isLocalPlayer)
+        if (!isOwned)
         {
             return;
         }
-        
+
 
 
         float x = Input.GetAxis("Horizontal");
@@ -48,7 +49,7 @@ public class PlayerMovement : NetworkBehaviour
 
         characterController.Move(moveDirection * moveSpeed * Time.deltaTime);
 
-         float mouseX = Input.GetAxis("Mouse X") * sensitivityX * Time.deltaTime;
+        float mouseX = Input.GetAxis("Mouse X") * sensitivityX * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * sensitivityY * Time.deltaTime;
         transform.Rotate(Vector3.up, mouseX);
         xRotation -= mouseY;
@@ -56,44 +57,36 @@ public class PlayerMovement : NetworkBehaviour
         //weaponArm.localEulerAngles = new Vector3(xRotation, 0, 0);
         Camera.main.transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
 
-        if(Input.GetMouseButtonDown(0)){
-            CmdPlayMuzzleFlash();
+        if (Input.GetMouseButtonDown(0))
+        {
+            // play muzzle flash
             RaycastAttack();
         }
     }
     [ClientCallback]
-        private void RaycastAttack()
+    private void RaycastAttack()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, 1000f))
         {
-            RaycastHit hit;
-            if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, 1000f))
+            HealthController other = hit.transform.GetComponent<HealthController>();
+            if (other != null)
             {
-                PlayerMovement other = hit.transform.GetComponent<PlayerMovement>();
-                if(other != null){
-                    CmdAttack(other.gameObject);
-                }
+                Debug.Log("other is not null");
+                CmdAttack(other,Dame);
             }
-
-        }
-        [Command]
-        private void CmdAttack(GameObject target){
-            target.GetComponent<PlayerMovement>().Health -= 10;
         }
 
-        void TakeDame(float _new,float old){
-            Debug.Log("my name is:" + gameObject.name);
-        }
-        [Command]
-        void SetHealth(){
-            Health =100f;
-        }
-        [Command]
-        void CmdPlayMuzzleFlash(){
-            PlayMuzzleFlash();
-        }
-        [ClientRpc]
-        void PlayMuzzleFlash(){
-            //play muzzleflash
-        }
+    }
+
+    [Command(requiresAuthority = false)]
+    private void CmdAttack(HealthController target,float dame){
+        Debug.Log("Hello");
+        target.TakeDame(dame);
+    }
+
+
+
 }
 
 
