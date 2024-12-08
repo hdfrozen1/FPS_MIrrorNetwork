@@ -7,10 +7,20 @@ using UnityEngine;
 public class HealthController : NetworkBehaviour
 {
     [SerializeField] private float _maxHealth;
-    [SyncVar] private float _currentHealth;
+    
+    [SyncVar(hook = nameof(OnHealthChange))]
+    private float _currentHealth;
+    private CanvasController _playerUI;
+    private void Start() {
+        if(!isOwned){
+            enabled =false;
+        }
+    }
     public override void OnStartAuthority()
     {
-
+        _playerUI = GameObject.Find("Player UI").GetComponent<CanvasController>();
+        _playerUI._viewCanvas.gameObject.SetActive(true);
+        _playerUI.SetMaxHealth(_maxHealth);
         SetCurrentHealth();
     }
     [Command(requiresAuthority = true)]
@@ -25,15 +35,28 @@ public class HealthController : NetworkBehaviour
             CmdDie();
         }
     }
-    [Command]
-    private void CmdDie()
+    [Command(requiresAuthority = false)]
+    private void CmdDie(NetworkConnectionToClient sender = null)
     {
+        Debug.Log("sender :" + sender.connectionId);
         Die();
     }
     [ClientRpc]
     private void Die()
     {
-        gameObject.SetActive(false);
+        if(!isOwned){
+            gameObject.SetActive(false);
+        }
+        
+    }
+
+    private void OnHealthChange(float _oldCurrentHealth,float _newCurrentHealth){
+        if(!isOwned){
+            Debug.Log("Hello from on health change");
+            Debug.Log("curent health :" + _currentHealth);
+            return;
+        }
+        _playerUI.ChangeCurrentHealth(_currentHealth);
     }
 
 

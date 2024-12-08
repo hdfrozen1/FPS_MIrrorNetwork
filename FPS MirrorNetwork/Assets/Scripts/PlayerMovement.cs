@@ -16,11 +16,21 @@ public class PlayerMovement : NetworkBehaviour
     [SerializeField] float sensitivityY = 100f;
     [SerializeField] float maxCameraX = 80f;
     [SerializeField] float minCameraX = -80f;
+    [SerializeField] Transform _muzzlePos;
+    [SerializeField] List<GameObject> _muzzleFlashs;
+    [SerializeField] GameObject _testGameobject;
+    private MyPool _myPool;
     float xRotation;
-
+    private void Start() {
+        
+        if(!isOwned){
+            enabled =false;
+        }
+    }
 
     public override void OnStartAuthority()
     {
+        
         if (!isOwned)
         {
             enabled = false; // Disable this script for non-local players
@@ -57,10 +67,12 @@ public class PlayerMovement : NetworkBehaviour
         //weaponArm.localEulerAngles = new Vector3(xRotation, 0, 0);
         Camera.main.transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButton(0))
         {
             // play muzzle flash
             RaycastAttack();
+             int randomNum = Random.Range(0,_muzzleFlashs.Count);
+             CmdPlayMuzzleFlash(randomNum);
         }
     }
     [ClientCallback]
@@ -81,10 +93,19 @@ public class PlayerMovement : NetworkBehaviour
 
     [Command(requiresAuthority = false)]
     private void CmdAttack(HealthController target,float dame){
-        Debug.Log("Hello");
+        Debug.Log(target.name);
         target.TakeDame(dame);
     }
 
+    [Command(requiresAuthority = true)]
+    private void CmdPlayMuzzleFlash(int random){
+        PlayMuzzleFlash(random);
+    }
+    [ClientRpc]
+    private void PlayMuzzleFlash(int random){
+        MyPool.Instance.Get(_muzzleFlashs[random],_muzzlePos);
+        //Instantiate(_testGameobject);
+    }
 
 
 }

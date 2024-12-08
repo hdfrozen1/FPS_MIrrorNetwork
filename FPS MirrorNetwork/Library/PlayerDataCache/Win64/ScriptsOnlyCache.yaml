@@ -1,11 +1,15 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp:
+    - BulletScript
     - DapperDino.Mirror.Tutorials.Lobby.NetworkGamePlayerLobby
     - DapperDino.Mirror.Tutorials.Lobby.NetworkRoomPlayerLobby
+    - DestroyAfterTimeParticle
+    - GunScript
     - HealthController
     - PlayerMovement
     Assembly-CSharp.dll:
+    - CanvasController
     - DapperDino.Mirror.Tutorials.CharacterSelection.Character
     - DapperDino.Mirror.Tutorials.CharacterSelection.CharacterSelect
     - DapperDino.Mirror.Tutorials.Lobby.JoinLobbyMenu
@@ -14,6 +18,7 @@ ScriptsOnlyBuild:
     - DapperDino.Mirror.Tutorials.Lobby.NetworkManagerLobby
     - DapperDino.Mirror.Tutorials.Lobby.NetworkRoomPlayerLobby
     - DapperDino.Mirror.Tutorials.Lobby.PlayerNameInput
+    - DestroyAfterTimeParticle
     - HealthController
     - PlayerMovement
     Mirror:
@@ -44,11 +49,8 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateEditor
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -171,9 +173,15 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 49
       Script: {instanceID: 0}
+    - Class: 65
+      Script: {instanceID: 0}
     - Class: 74
       Script: {instanceID: 0}
     - Class: 81
+      Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
       Script: {instanceID: 0}
     - Class: 89
       Script: {instanceID: 0}
@@ -206,35 +214,41 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 18260}
     - Class: 114
-      Script: {instanceID: 19558}
+      Script: {instanceID: 18468}
     - Class: 114
-      Script: {instanceID: 19572}
+      Script: {instanceID: 18568}
     - Class: 114
-      Script: {instanceID: 19842}
+      Script: {instanceID: 19570}
     - Class: 114
-      Script: {instanceID: 19874}
+      Script: {instanceID: 19584}
     - Class: 114
-      Script: {instanceID: 20202}
+      Script: {instanceID: 19854}
     - Class: 114
-      Script: {instanceID: 20348}
+      Script: {instanceID: 19860}
     - Class: 114
-      Script: {instanceID: 20460}
+      Script: {instanceID: 19888}
     - Class: 114
-      Script: {instanceID: 20662}
+      Script: {instanceID: 20216}
     - Class: 114
-      Script: {instanceID: 21492}
+      Script: {instanceID: 20362}
     - Class: 114
-      Script: {instanceID: 21608}
+      Script: {instanceID: 20474}
     - Class: 114
-      Script: {instanceID: 21870}
+      Script: {instanceID: 20678}
     - Class: 114
-      Script: {instanceID: 22550}
+      Script: {instanceID: 21508}
     - Class: 114
-      Script: {instanceID: 22758}
+      Script: {instanceID: 21624}
     - Class: 114
-      Script: {instanceID: 22968}
+      Script: {instanceID: 21886}
     - Class: 114
-      Script: {instanceID: 25560}
+      Script: {instanceID: 22568}
+    - Class: 114
+      Script: {instanceID: 22776}
+    - Class: 114
+      Script: {instanceID: 22986}
+    - Class: 114
+      Script: {instanceID: 23548}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -246,6 +260,10 @@ ScriptsOnlyBuild:
     - Class: 157
       Script: {instanceID: 0}
     - Class: 196
+      Script: {instanceID: 0}
+    - Class: 198
+      Script: {instanceID: 0}
+    - Class: 199
       Script: {instanceID: 0}
     - Class: 213
       Script: {instanceID: 0}
@@ -276,6 +294,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 64
       Script: {instanceID: 0}
+    - Class: 65
+      Script: {instanceID: 0}
     - Class: 74
       Script: {instanceID: 0}
     - Class: 81
@@ -303,23 +323,27 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 18100}
     - Class: 114
-      Script: {instanceID: 19160}
+      Script: {instanceID: 18644}
     - Class: 114
-      Script: {instanceID: 19842}
+      Script: {instanceID: 19168}
     - Class: 114
-      Script: {instanceID: 20662}
+      Script: {instanceID: 19854}
     - Class: 114
-      Script: {instanceID: 21492}
+      Script: {instanceID: 19860}
     - Class: 114
-      Script: {instanceID: 21608}
+      Script: {instanceID: 20678}
     - Class: 114
-      Script: {instanceID: 21870}
+      Script: {instanceID: 21508}
     - Class: 114
-      Script: {instanceID: 21958}
+      Script: {instanceID: 21624}
     - Class: 114
-      Script: {instanceID: 22968}
+      Script: {instanceID: 21886}
     - Class: 114
-      Script: {instanceID: 25560}
+      Script: {instanceID: 21974}
+    - Class: 114
+      Script: {instanceID: 22986}
+    - Class: 114
+      Script: {instanceID: 23548}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -787,6 +811,12 @@ ScriptsOnlyBuild:
     className: MultiplexTransport
   - hash:
       serializedVersion: 2
+      Hash: 733d0fc348553af323527c8cb7a82a60
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: PlayerMovementScript
+  - hash:
+      serializedVersion: 2
       Hash: a1ac4c50e55874de16eee3db71aa9784
     assemblyName: UnityEngine.UI
     namespaceName: UnityEngine.UI
@@ -827,6 +857,12 @@ ScriptsOnlyBuild:
     assemblyName: Mirror.Examples
     namespaceName: Mirror.Examples.BenchmarkIdle
     className: Npc
+  - hash:
+      serializedVersion: 2
+      Hash: 1c72b61e18195f6e29a632fb19d79432
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: BulletScript
   - hash:
       serializedVersion: 2
       Hash: 7a9da03c1c5568ddc68bd58b037718df
@@ -871,6 +907,12 @@ ScriptsOnlyBuild:
     className: UnityOnMouseDragMessageListener
   - hash:
       serializedVersion: 2
+      Hash: 81b2a99d5311d91c10b4e35c2551a6cc
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: GunScript
+  - hash:
+      serializedVersion: 2
       Hash: d7c8092511063e0dae8106bfc8ed63dd
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
@@ -899,6 +941,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI
     namespaceName: UnityEngine.UI
     className: ContentSizeFitter
+  - hash:
+      serializedVersion: 2
+      Hash: b2b6172b6208d6985ff74a206daf5320
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: CanvasController
   - hash:
       serializedVersion: 2
       Hash: aa432d7c26fb723d895a0cbed4ee450d
@@ -1043,6 +1091,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: UnityOnPointerExitMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: 842036aabd32ae251397dcf9960c0e24
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: MouseLookScript
   - hash:
       serializedVersion: 2
       Hash: 8751ba4a82568e9a32d19e994627219c
@@ -1241,6 +1295,12 @@ ScriptsOnlyBuild:
     assemblyName: Mirror
     namespaceName: Mirror
     className: NetworkIdentity
+  - hash:
+      serializedVersion: 2
+      Hash: 813b2a8a2669df141d178b5eab7051bc
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: DestroyAfterTimeParticle
   - hash:
       serializedVersion: 2
       Hash: 27bf461205ef61a3d64e271dfede0151
@@ -1451,6 +1511,12 @@ ScriptsOnlyBuild:
     assemblyName: Mirror.Components
     namespaceName: Mirror
     className: FpsMinMaxAvgGraph
+  - hash:
+      serializedVersion: 2
+      Hash: 6f15dd31c66891100bbc1dbf0e297fe1
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: GunInventory
   - hash:
       serializedVersion: 2
       Hash: 10c17b309bdca62b4d7fbaf113ed4ca0
@@ -1711,7 +1777,7 @@ ScriptsOnlyBuild:
     className: BehaviourConfig
   - hash:
       serializedVersion: 2
-      Hash: 8f0be44017a32e9782da6e72389d6ede
+      Hash: 5814428cbea99a8cd200fd1edb8a1930
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: PlayerMovement
@@ -1859,6 +1925,12 @@ ScriptsOnlyBuild:
     assemblyName: Mirror.Examples
     namespaceName: Mirror.Examples.CharacterSelection
     className: StaticVariables
+  - hash:
+      serializedVersion: 2
+      Hash: 8a25e7a659b0c5e1365a37178da4054b
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: ReturnToMyPool
   - hash:
       serializedVersion: 2
       Hash: f669be52680c88846b2093fd41d1e06e
@@ -2233,6 +2305,12 @@ ScriptsOnlyBuild:
     className: Reward
   - hash:
       serializedVersion: 2
+      Hash: a17347ea5958ce60ce0938ea358947bf
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: HealthController
+  - hash:
+      serializedVersion: 2
       Hash: 1553f209ae0b2d5d3a35685fca55f9c3
     assemblyName: Unity.TextMeshPro
     namespaceName: TMPro
@@ -2339,12 +2417,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: UnityOnSliderValueChangedMessageListener
-  - hash:
-      serializedVersion: 2
-      Hash: a17347ea5958ce60ce0938ea358947bf
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: HealthController
   platform: 19
   scenePathNames:
   - Assets/Scenes/Lobby_Scene.unity
