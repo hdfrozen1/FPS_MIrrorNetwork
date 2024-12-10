@@ -12,6 +12,10 @@ public class HealthController : NetworkBehaviour
     private float _currentHealth;
     private CanvasController _playerUI;
     private void Start() {
+        
+        string netId = GetComponent<NetworkIdentity>().netId.ToString();
+        transform.name =  "Player_" + netId;
+        ManagePlayer.RegisterPlayer(netId,this);
         if(!isOwned){
             enabled =false;
         }
@@ -31,16 +35,11 @@ public class HealthController : NetworkBehaviour
     public void TakeDame(float dame)
     {
         _currentHealth = Mathf.Clamp(_currentHealth - dame, 0, _maxHealth);
-        if(_currentHealth <= 0){
-            CmdDie();
+        if(_currentHealth <= 0 && isServer){
+            Die();
         }
     }
-    [Command(requiresAuthority = false)]
-    private void CmdDie(NetworkConnectionToClient sender = null)
-    {
-        Debug.Log("sender :" + sender.connectionId);
-        Die();
-    }
+    
     [ClientRpc]
     private void Die()
     {

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
+using Mirror.Examples.TopDownShooter;
 public class PlayerMovement : NetworkBehaviour
 {
     [SerializeField] CharacterController characterController;
@@ -81,20 +82,17 @@ public class PlayerMovement : NetworkBehaviour
         RaycastHit hit;
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, 1000f))
         {
-            HealthController other = hit.transform.GetComponent<HealthController>();
-            if (other != null)
-            {
-                Debug.Log("other is not null");
-                CmdAttack(other,Dame);
+            if(hit.transform.tag == "ThePlayer"){
+                CmdAttack(hit.collider.name,10);
             }
         }
 
     }
 
-    [Command(requiresAuthority = false)]
-    private void CmdAttack(HealthController target,float dame){
-        Debug.Log(target.name);
-        target.TakeDame(dame);
+    [Command(requiresAuthority = true)]
+    private void CmdAttack(string target,float dame){
+        HealthController enemy = ManagePlayer.GetPlayer(target);
+        enemy.TakeDame(dame);
     }
 
     [Command(requiresAuthority = true)]

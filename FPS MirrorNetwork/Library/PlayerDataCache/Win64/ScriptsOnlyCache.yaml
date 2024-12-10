@@ -27,6 +27,8 @@ ScriptsOnlyBuild:
     - Mirror.NetworkTransformReliable
     Mirror.Components.dll:
     - Mirror.NetworkTransformReliable
+    Mirror.Editor.dll:
+    - Mirror.NetworkBehaviourInspector
     Mirror.Transports.dll:
     - Mirror.TelepathyTransport
     Mirror.dll:
@@ -214,41 +216,41 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 18260}
     - Class: 114
-      Script: {instanceID: 18468}
+      Script: {instanceID: 18470}
     - Class: 114
-      Script: {instanceID: 18568}
+      Script: {instanceID: 18570}
     - Class: 114
-      Script: {instanceID: 19570}
+      Script: {instanceID: 19572}
     - Class: 114
-      Script: {instanceID: 19584}
+      Script: {instanceID: 19586}
     - Class: 114
-      Script: {instanceID: 19854}
+      Script: {instanceID: 19856}
     - Class: 114
-      Script: {instanceID: 19860}
+      Script: {instanceID: 19862}
     - Class: 114
-      Script: {instanceID: 19888}
+      Script: {instanceID: 19890}
     - Class: 114
-      Script: {instanceID: 20216}
+      Script: {instanceID: 20218}
     - Class: 114
-      Script: {instanceID: 20362}
+      Script: {instanceID: 20364}
     - Class: 114
-      Script: {instanceID: 20474}
+      Script: {instanceID: 20476}
     - Class: 114
-      Script: {instanceID: 20678}
+      Script: {instanceID: 20680}
     - Class: 114
-      Script: {instanceID: 21508}
+      Script: {instanceID: 21510}
     - Class: 114
-      Script: {instanceID: 21624}
+      Script: {instanceID: 21626}
     - Class: 114
-      Script: {instanceID: 21886}
+      Script: {instanceID: 21888}
     - Class: 114
-      Script: {instanceID: 22568}
+      Script: {instanceID: 22570}
     - Class: 114
-      Script: {instanceID: 22776}
+      Script: {instanceID: 22778}
     - Class: 114
-      Script: {instanceID: 22986}
+      Script: {instanceID: 22988}
     - Class: 114
-      Script: {instanceID: 23548}
+      Script: {instanceID: 23550}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -323,27 +325,27 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 18100}
     - Class: 114
-      Script: {instanceID: 18644}
+      Script: {instanceID: 18646}
     - Class: 114
-      Script: {instanceID: 19168}
+      Script: {instanceID: 19170}
     - Class: 114
-      Script: {instanceID: 19854}
+      Script: {instanceID: 19856}
     - Class: 114
-      Script: {instanceID: 19860}
+      Script: {instanceID: 19862}
     - Class: 114
-      Script: {instanceID: 20678}
+      Script: {instanceID: 20680}
     - Class: 114
-      Script: {instanceID: 21508}
+      Script: {instanceID: 21510}
     - Class: 114
-      Script: {instanceID: 21624}
+      Script: {instanceID: 21626}
     - Class: 114
-      Script: {instanceID: 21886}
+      Script: {instanceID: 21888}
     - Class: 114
-      Script: {instanceID: 21974}
+      Script: {instanceID: 21976}
     - Class: 114
-      Script: {instanceID: 22986}
+      Script: {instanceID: 22988}
     - Class: 114
-      Script: {instanceID: 23548}
+      Script: {instanceID: 23550}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128

@@ -341,6 +341,7 @@
 "Assets/Scripts/Health/HealthController.cs"
 "Assets/Scripts/JoinLobbyMenu.cs"
 "Assets/Scripts/MainMenu.cs"
+"Assets/Scripts/ManagePlayer.cs"
 "Assets/Scripts/NetworkGamePlayerLobby.cs"
 "Assets/Scripts/NetworkManagerLobby.cs"
 "Assets/Scripts/NetworkRoomPlayerLobby.cs"

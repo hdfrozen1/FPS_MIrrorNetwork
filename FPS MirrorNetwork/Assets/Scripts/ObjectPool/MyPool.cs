@@ -28,6 +28,7 @@ public class MyPool
             if (tmp != null)
             {
                 tmp.SetActive(true);
+                tmp.transform.position = position.position;
                 return tmp;
             } else
             {
