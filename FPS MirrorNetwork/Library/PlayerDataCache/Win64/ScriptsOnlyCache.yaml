@@ -27,8 +27,6 @@ ScriptsOnlyBuild:
     - Mirror.NetworkTransformReliable
     Mirror.Components.dll:
     - Mirror.NetworkTransformReliable
-    Mirror.Editor.dll:
-    - Mirror.NetworkBehaviourInspector
     Mirror.Transports.dll:
     - Mirror.TelepathyTransport
     Mirror.dll:
@@ -945,7 +943,7 @@ ScriptsOnlyBuild:
     className: ContentSizeFitter
   - hash:
       serializedVersion: 2
-      Hash: b2b6172b6208d6985ff74a206daf5320
+      Hash: e2cd39dededf68657410cdd44344da62
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: CanvasController
